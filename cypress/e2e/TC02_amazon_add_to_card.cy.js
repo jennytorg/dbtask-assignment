@@ -69,7 +69,7 @@ describe('adding items to the shopping cart ',()=>{
     })
 
     //shold be costum command to check out to my card
-    it('check out the cart and varify subtotal have 2 items NO free shipping ',()=>{
+    it('check out the cart and varify subtotal have 3 items NO free shipping ',()=>{
         //cy.get('#nav-cart-count').click()
         cy.ClickToSeeMyCartList()
 
