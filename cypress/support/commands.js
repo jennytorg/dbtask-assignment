@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
+import Amazon_main_header from '../page_objects/amazon_header_bar.cy'
 
 Cypress.Commands.add("openAmazonSite",()=>{
     cy.visit('');
@@ -36,7 +36,9 @@ Cypress.Commands.add("ClickAddToCart",()=>{
 })
 
 Cypress.Commands.add("ClickToSeeMyCartList",()=>{
-    cy.get('#nav-cart-count').click()
+    const header_links= new Amazon_main_header()
+    header_links.clickOnShoppingCartLink()
+    //cy.get('#nav-cart-count').click()
 })
 
 Cypress.Commands.add("checkIfConfirmMsgAppears",()=>{

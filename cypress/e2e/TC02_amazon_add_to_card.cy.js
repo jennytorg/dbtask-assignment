@@ -17,6 +17,7 @@ describe('adding items to the shopping cart ',()=>{
         cy.get('#nav-search-bar-form')
         .type("Bostitch Personal Electric Pencil Sharpener, Powerful Stall-Free Motor, High Capacity Shavings Tray,Blue (EPS4-BLUE)")
 
+        //submit button
         cy.get('#nav-search-submit-button').click()
 
     })
@@ -69,14 +70,14 @@ describe('adding items to the shopping cart ',()=>{
     })
 
     //shold be costum command to check out to my card
-    it('check out the cart and varify subtotal have 3 items NO free shipping ',()=>{
+    it('check out the cart and verify subtotal have 3 items, NO free shipping txt display ',()=>{
         //cy.get('#nav-cart-count').click()
         cy.ClickToSeeMyCartList()
 
         //subtotal text should have (3 items), items were added earliar
         cy.get('#sc-subtotal-label-buybox').should('contain', '3 items')
 
-        //card view form should contain text 'your Cart are not eligible for FREE Shipping'
+        //cart view form should contain text 'your Cart are not eligible for FREE Shipping'
         cy.get(".a-alert-content").should('contain','your Cart are not eligible for FREE Shipping')
     })
 
@@ -91,7 +92,7 @@ describe('adding items to the shopping cart ',()=>{
         cy.checkIfConfirmMsgAppears()
     })
 
-    it('check out the cart and varify subtotal text have free shipping',()=>{
+    it('check out the cart and verify subtotal text have free shipping',()=>{
         cy.ClickToSeeMyCartList()
 
         cy.get(".a-alert-content").should('contain','qualifies for FREE Shipping.')
